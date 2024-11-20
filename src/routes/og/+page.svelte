@@ -6,6 +6,7 @@
 	import { buttonVariants } from '$shared/components/ui/button/index.js';
 	import { Label } from '$shared/components/ui/label/index.js';
 	import * as Tooltip from '$shared/components/ui/tooltip/index.js';
+	import { toast } from 'svelte-sonner';
 	import { language } from '$shared/stores/language';
 
 	const url = 'https://api.ma.cyou/og/';
@@ -116,7 +117,12 @@
 								class="{buttonVariants({
 									variant: 'outline'
 								})} h-auto whitespace-pre-wrap break-all"
-								onclick={() => navigator.clipboard.writeText(resultUrl)}
+								onclick={() => {
+									navigator.clipboard.writeText(resultUrl);
+									toast.success(
+										$language === 'ru' ? 'Скопировано в буфер обмена' : 'Copied to clipboard'
+									);
+								}}
 							>
 								{resultUrl}
 							</Tooltip.Trigger>
@@ -153,7 +159,12 @@
 										class="{buttonVariants({
 											variant: 'outline'
 										})} h-auto whitespace-pre-wrap break-all"
-										onclick={() => navigator.clipboard.writeText(value)}
+										onclick={() => {
+											navigator.clipboard.writeText(value);
+											toast.success(
+												$language === 'ru' ? 'Скопировано в буфер обмена' : 'Copied to clipboard'
+											);
+										}}
 									>
 										{value}
 									</Tooltip.Trigger>

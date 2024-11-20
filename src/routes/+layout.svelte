@@ -6,7 +6,13 @@
 	let { children } = $props();
 </script>
 
-<Header profile={false} />
+<Header
+	navLinks={{
+		'https://ma.cyou/': { name: 'Home', nameRu: 'Главная' },
+		'/': { name: 'more', nameRu: 'больше' }
+	}}
+	profile={false}
+/>
 
 <Toaster />
 

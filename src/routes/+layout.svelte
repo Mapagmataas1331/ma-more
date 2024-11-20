@@ -11,7 +11,6 @@
 		'https://ma.cyou/': { name: 'Home', nameRu: 'Главная' },
 		'/': { name: 'more', nameRu: 'больше' }
 	}}
-	profile={false}
 />
 
 <Toaster />
